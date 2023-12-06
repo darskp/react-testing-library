@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const UserForm = () => {
+const UserForm = ({ onUserAdd }) => {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
 
@@ -8,6 +8,7 @@ const UserForm = () => {
         e.preventDefault();
         console.log("NAME", name);
         console.log("Email", email);
+        onUserAdd({name,email})
     }
 
     return (
