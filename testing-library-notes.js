@@ -11,9 +11,16 @@
 import { screen, render } from '@testing-library/react'; // to render the reactdom
 import userEvent from '@testing-library/user-event'; // helps simulate user actions like event,click,type
 import UserForm from './UserForm';
+import { element } from 'prop-types';
 
 // test('it should do something descriptive', () => {
-//   render the component - if any props are there we can pass them
+//   render the component - if any props are there we can pass them(we should -- in case if u are filtering the file (press p))
 //   find an element in it using screen
 //   assertion - make sure the component behaves as expected, like updating state, UI change
 // })
+
+
+// Collection of 48 functions to find the elements
+
+// screen.getByRole()
+// screen.findByTitle()
