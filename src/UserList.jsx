@@ -8,7 +8,7 @@ const UserList = ({ users }) => {
                     <th>Email</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody data-testid="users">
                 {users.length > 0 ? users?.map((user, index, array) => {
                     console.log(user)
                     return (
