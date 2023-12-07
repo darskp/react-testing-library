@@ -4,11 +4,11 @@ const UserForm = ({ onUserAdd }) => {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
 
-    let handleSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("NAME", name);
-        console.log("Email", email);
-        onUserAdd({name,email})
+        onUserAdd({ name, email })
+        setName('');
+        setEmail('');
     }
 
     return (

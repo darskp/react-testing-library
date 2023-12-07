@@ -1,4 +1,4 @@
-import { screen, render } from '@testing-library/react'; // to render the reactdom
+import { screen, render, waitFor } from '@testing-library/react';
 import UserForm from './UserForm';
 import userEvent from '@testing-library/user-event';
 
@@ -27,7 +27,27 @@ test('it calls onUserAdd when the form is submitted', () => {
 
     const btn = screen.getByRole('button');
     userEvent.click(btn);
-    
+
     expect(mock).toHaveBeenCalled();
     expect(mock).toHaveBeenCalledWith({ name: "Darshan", email: 'Darsh@gmail.com' })
 })
+
+test('empties the two inputs when form is submitted', async () => {
+    render(<UserForm onUserAdd={() => { }} />);
+    const nameInput = screen.getByRole('textbox', { name: /name/i });
+    const emailInput = screen.getByRole('textbox', { name: /email/i });
+    const btn = screen.getByRole('button');
+
+    userEvent.click(nameInput)
+    userEvent.keyboard('Darshan')
+
+    userEvent.click(emailInput)
+    userEvent.keyboard('Darsh@gmail.com')
+
+    userEvent.click(btn);
+
+    await waitFor(() => {
+        expect(nameInput).toHaveValue('');
+        expect(emailInput).toHaveValue('');
+    });
+});
