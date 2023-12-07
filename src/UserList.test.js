@@ -1,7 +1,6 @@
 import { screen, render, within } from '@testing-library/react'; // to render the reactdom
 import UserList from './UserList';
 import userEvent from '@testing-library/user-event';
-import exp from 'constants';
 
 
 function renderComponent() {

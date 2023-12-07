@@ -7,12 +7,13 @@ function App() {
   const [users, setUsers] = useState([]);
 
   const onUserAdd = (user) => {
-    setUsers([...users, user])
+    setUsers(prevUsers => [...prevUsers, user]);
   }
+
 
   return (
     <div>
-    <h2>React Testing Library</h2>
+      <h2>React Testing Library</h2>
       <UserForm onUserAdd={onUserAdd} />
       <hr />
       <UserList users={users} />
